@@ -23,13 +23,12 @@ namespace IngameScript
     {
         IMyCargoContainer WelderContainer, CargoContainers;        
         IMyAssembler AssemblerQueue; //Only queue assembler, no need for making stuff because i want to integrate this with ISY`s TIM etc.        
-        IMyTextPanel WelderLCD, ErrorLCD;
-        List<IMyTerminalBlock> WBList;
+        IMyTextPanel WelderLCD, ErrorLCD;    
+        
 
         public Program()
         {
-            List<IMyTerminalBlock> WBList = new List<IMyTerminalBlock>(); //in progress, ignore this
-            GridTerminalSystem.SearchBlocksOfName("[WBL]", WBList); //in progress, ignore this
+            
 
 
             Runtime.UpdateFrequency = UpdateFrequency.Update10;
@@ -96,23 +95,9 @@ namespace IngameScript
             }
             return name;
 
-
         }
 
-        public void GetContainerList() //in progress, ignore this
-        {
-
-            GridTerminalSystem.GetBlocks(WBList); // Where allBlocks is a list type.
-
-            for (int i = 0; i < WBList.Count; i++)
-            {
-                if (WBList[i] is IMyBeacon)
-                {
-                    // Do IMyBeacon Stuff
-                }
-            }
-
-        }
+        
 
         public void PrintQueue(IMyCargoContainer Container, IMyTextPanel LCD, IMyCargoContainer CargoContainers, IMyTextPanel ErrorLCD) //all code is in one function for now, need to be separate
         {
